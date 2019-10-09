@@ -9,11 +9,11 @@ PROGRAM myprog
   real :: secret_sauce, length1, length2, aoli, PI, Masters_Degree, garbage_sauce, length_multiplied
   real, dimension(:), allocatable :: vec1, vec2
   real, external :: DOT, LENG
-
   !reads in vector size and allocates 2 vectors
   read *, arr_size
   allocate(vec1(1:arr_size))
   allocate(vec2(1:arr_size))
+
   !reads in first vector values
   read *, (vec1(n), n=1,arr_size)
   print *, ("Vector 1 consists of: ")
