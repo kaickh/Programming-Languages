@@ -1,9 +1,13 @@
-program head
-  implicit none
+!written by: Kai Khasu Homework 4 Assignment
 
-  integer :: arr_size, n = 1, i
+PROGRAM myprog
+  implicit none !standard
+
+  !variable declarations: counter(n), array size, vectors 1 and 2
+  integer :: arr_size, n = 1
+  real :: secret_sauce
   real, dimension(:), allocatable :: vec1, vec2
-  real :: value, length
+  real, external :: DOT, LEN
 
   !reads in vector size and allocates 2 vectors
   read *, arr_size
@@ -18,21 +22,22 @@ program head
   read *, (vec2(n), n=1,arr_size)
   print *, (vec2(n), n=1,arr_size)
 
-  !this takes care of the dot product logic
-  !not sure the propper way to do the do loop tho
-  value = 0
+!figures out how to call a fucking function
+  secret_sauce = DOT(vec1, vec2, arr_size)
+  print *,"this that secret secret 'DOT for short'", secret_sauce
+END PROGRAM myprog
+
+real function DOT(var1, var2, arr_size) result(prod)
+  implicit none !standard
+
+  !variable declaration
+  integer :: arr_size,  i = 0
+  real :: value = 0
+  real, dimension(1:arr_size) :: var1, var2
+
   do 10 i = 1, arr_size
-    value = value + vec1(i) * vec2(i)
- 10  continue
- print *,'dot value is ', value
-
- !this will tackle the length function logic
- length = 0
- do 20 i = 1, arr_size
-   !will be for vec 1 and vec 2
-   length = length + vec1(i) * vec1(i)
-20   continue
-length = SQRT(length)
-print *,'length is ', length
-
-end program head
+    value = value + var1(i) * var2(i)
+  10 continue
+  prod = value
+  return
+end function DOT
