@@ -1,6 +1,7 @@
 !written by: Kai Khasu Homework 4 Assignment
 
 PROGRAM myprog
+
   implicit none !standard
 
   !variable declarations: counter(n), array size, vectors 1 and 2
@@ -41,6 +42,7 @@ PROGRAM myprog
   PI = 3.14159
   Masters_Degree = (aoli * 180 / PI)
   print *,"Final degs are: ", Masters_Degree
+
 
 END PROGRAM myprog
 
