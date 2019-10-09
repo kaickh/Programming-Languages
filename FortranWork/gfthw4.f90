@@ -5,6 +5,7 @@ PROGRAM myprog
 
   !variable declarations: counter(n), array size, vectors 1 and 2
   integer :: arr_size, n = 1
+  
   real, dimension(:), allocatable :: vec1, vec2
   real, external :: DOT
 
@@ -23,15 +24,19 @@ PROGRAM myprog
 
 !figures out how to call a fucking function
 
+
 END PROGRAM myprog
 
 real function DOT(var1, var2, arr_size) result(prod)
   implicit none !standard
 
   !variable declaration
-  integer :: count,
-  real :: elem1, elem2
+  integer :: arr_size,  i = 0
+  real :: var1, var2, value = 0
 
-  DOT =
+  do 10 i = 1, arr_size
+    value = value + var1(i) * var2(i)
+  10 continue
+  prod = value
   return
 end function DOT
